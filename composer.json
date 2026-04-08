@@ -1,0 +1,65 @@
+{
+    "name": "carmelosantana/coqui-toolkit-umami-admin",
+    "description": "Umami Analytics admin toolkit for Coqui — full website management, analytics, user/team admin, reports, and event tracking",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carmelo Santana"
+        }
+    ],
+    "keywords": [
+        "php-agents",
+        "umami",
+        "analytics",
+        "admin",
+        "coqui",
+        "toolkit"
+    ],
+    "require": {
+        "php": "^8.4",
+        "symfony/http-client": "^7.0"
+    },
+    "require-dev": {
+        "carmelosantana/php-agents": "^0.7",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitUmamiAdmin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitUmamiAdmin\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse"
+    },
+    "extra": {
+        "php-agents": {
+            "toolkits": [
+                "CarmeloSantana\\CoquiToolkitUmamiAdmin\\UmamiAdminToolkit"
+            ],
+            "description": "Umami Analytics — full admin toolkit for website management, analytics queries, user/team management, reports, event tracking, and session analysis",
+            "credentials": {
+                "UMAMI_API_URL": "Umami instance base URL (e.g. https://analytics.example.com)",
+                "UMAMI_API_KEY": "Umami API key — create one in Settings > API Keys in your Umami dashboard",
+                "UMAMI_USERNAME": "(Optional) Umami username — fallback auth if no API key is set",
+                "UMAMI_PASSWORD": "(Optional) Umami password — fallback auth if no API key is set"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
